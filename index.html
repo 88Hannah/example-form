@@ -9,25 +9,26 @@
 
     <body>
         
-        <form>
+        <form class="booking-form">
 
             <!-- Customer name -->
             <label for="name">Name</label>
-            <input type="text" name="customerName" id="name" placeholder="Name" required>
+            <input type="text" name="customerName" id="name" placeholder="Name" required autocomplete="off">
 
             <!-- Email address -->
             <label for="email">Email address</label>
-            <input type="email" name="email" id="email" placeholder="Email" required>
+            <input type="email" name="email" id="email" placeholder="Email" required autocomplete="off">
+            <span class="validate-email">A valid email address must be entered</span>
 
             <!-- Phone number -->
             <label for="phone-number">Telephone number</label>
-            <input type="tel" name="phoneNumber" id="phone-number" placeholder="Telephone number">
-
+            <input type="tel" name="phoneNumber" id="phone-number" placeholder="Telephone number" required autocomplete="off">
+            <span class="validate-phone">A valid phone number must be entered</span>
 
             <!-- Location -->
             <label for="location">Restaurant location</label>
-            <select id="location">
-                <option hidden disabled selected>--- select a location ---</option>
+            <select id="location" required>
+                <option hidden disabled selected value="">--- select a location ---</option>
                 <optgroup label="London">
                     <option>Croydon</option>
                     <option>Hammersmith</option>
@@ -43,36 +44,43 @@
                     <option>Brighton</option>
                     <option>Hastings</option>
                 </optgroup>
-
             </select>
+            <span class="validate-location">Please select a restaurant</span>
+
 
 
             <!-- Date of booking -->
             <label for="date">Date of booking</label>
-            <input type="date" id="date" required>
+            <input type="date" id="date" name="date" required>
+            <span class="validate-date">Online bookings are only available a maximum of a year in advance.</span>
 
             <!-- Time of booking -->
             <label for="time"> Time of booking</label>
             <input type="time" id="time" name="time" list="times" min="12:00" max="22:00" step="900" required>
             <datalist id="times">
-                <option>12:00</option>
-                <option>12:15</option>
-                <option>12:30</option>
-                <option>12:45</option>
-                <option>13:00</option>
-                <option>13:15</option>
-                <option>13:30</option>
-                <option>13:45</option>
-                <option>14:00</option>
                 <!-- Add more time with Javascript later -->
             </datalist>
-            
+            <span class="validate-time">Tables can only be booked every 15 minutes between 12:00 and 22:00</span>
+
+
+
+            <!-- Number of people -->
+            <label for="guests">Number of guests</label>
+            <input type="number" id="guests" name="guests" min="1" max="12" required>
+            <span class="validate-guests">Please select the number of guests</span>
+            <div class="guests__popup">
+                <div class="popup__text">
+                    <p>If you would like to make a booking for more than 12 guests, please contact the restaurant by phone.</p>
+                    <button type="button" class="close-popup">OK</button>
+                </div>
+            </div>
             
             
 
 
 
             <!-- Special requirements radio button -->
+            <p>Would you like to add a special requirement note?</p>
             <input type="radio" name="specialRequirementsGiven" id="no" value="no" checked>
             <label for="no">No</label>
 
@@ -81,8 +89,10 @@
 
 
             <!-- Special requirements text area -->
-            <label for="special-requirements">Special Requirements</label>
-            <textarea name="specialRequirements" id="special-requirements" cols="100" rows="4" maxlength="400" placeholder="Enter any special requirements that you would like us to be aware of here."></textarea>
+            <div class="special-requirements-block">
+                <label for="special-requirements">Special Requirements</label>
+                <textarea name="specialRequirements" id="special-requirements" cols="100" rows="4" maxlength="400" placeholder="Enter any special requirements that you would like us to be aware of here."></textarea>
+            </div>
 
             <!-- Checkboxes for newsletters -->
             <p>I would like to receive emails about the following:</p>
@@ -96,10 +106,11 @@
             <label for="specialOffers">Special offers</label>
 
             <!-- Submit -->
-            <button type="submit">Submit</button>
-
+            <button type="submit" id="submit">Submit</button>
 
         </form>
+
+        <div class="submitted"></div>
 
 
 
