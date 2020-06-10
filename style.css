@@ -1,0 +1,49 @@
+.special-requirements-block {
+    display: none;
+}
+
+
+.guests__popup {
+    position: relative;
+    display: inline-block;
+}
+
+.popup__text {
+    visibility: hidden;
+    position: absolute;
+    width: 250px;
+    background: #ddd;
+    z-index: 1;
+}
+
+.popup__text:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-top: solid 10px #ddd;
+    border-left: solid 10px transparent;
+    border-right: solid 10px transparent;
+}
+
+.show-popup {
+    visibility: visible;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+
+
+.validate-phone,
+.validate-email,
+.validate-date,
+.validate-time,
+.validate-location,
+.validate-guests {
+    display: none;
+}
