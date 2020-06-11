@@ -4,123 +4,137 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Book a table</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
     </head>
 
     <body>
-        
-        <form class="booking-form">
 
-            <!-- Customer name -->
-            <label for="name">Name</label>
-            <input type="text" name="customerName" id="name" placeholder="Name" required autocomplete="off">
+        <div class="container">
 
-            <!-- Email address -->
-            <label for="email">Email address</label>
-            <input type="email" name="email" id="email" placeholder="Email" required autocomplete="off">
-            <span class="validate-email">A valid email address must be entered</span>
+            <form class="booking-form">
 
-            <!-- Phone number -->
-            <label for="phone-number">Telephone number</label>
-            <input type="tel" name="phoneNumber" id="phone-number" placeholder="Telephone number" required autocomplete="off">
-            <span class="validate-phone">A valid phone number must be entered</span>
+                <h1>Book a table</h2>
 
-            <!-- Location -->
-            <label for="location">Restaurant location</label>
-            <select id="location" required>
-                <option hidden disabled selected value="">--- select a location ---</option>
-                <optgroup label="London">
-                    <option>Croydon</option>
-                    <option>Hammersmith</option>
-                    <option>Stratford</option>
-                    <option>Wembley</option>
-                </optgroup>
-                <optgroup label="East Anglia">
-                    <option>Cambridge</option>
-                    <option>Colchester</option>
-                    <option>Norwich</option>
-                </optgroup>
-                <optgroup label="South East">
-                    <option>Brighton</option>
-                    <option>Hastings</option>
-                </optgroup>
-            </select>
-            <span class="validate-location">Please select a restaurant</span>
-
-
-
-            <!-- Date of booking -->
-            <label for="date">Date of booking</label>
-            <input type="date" id="date" name="date" required>
-            <span class="validate-date">Online bookings are only available a maximum of a year in advance.</span>
-
-            <!-- Time of booking -->
-            <label for="time"> Time of booking</label>
-            <input type="time" id="time" name="time" list="times" min="12:00" max="22:00" step="900" required>
-            <datalist id="times">
-                <!-- Add more time with Javascript later -->
-            </datalist>
-            <span class="validate-time">Tables can only be booked every 15 minutes between 12:00 and 22:00</span>
-
-
-
-            <!-- Number of people -->
-            <label for="guests">Number of guests</label>
-            <input type="number" id="guests" name="guests" min="1" max="12" required>
-            <span class="validate-guests">Please select the number of guests</span>
-            <div class="guests__popup">
-                <div class="popup__text">
-                    <p>If you would like to make a booking for more than 12 guests, please contact the restaurant by phone.</p>
-                    <button type="button" class="close-popup">OK</button>
+                <!-- Customer name -->
+                <div class="field">
+                    <label for="name" class="heading--full">Name</label>
+                    <input type="text" name="customerName" id="name" placeholder="Name" required autocomplete="off" class="input input--full">
                 </div>
-            </div>
-            
-            
 
+                <!-- Email address -->
+                <div class="field">
+                    <label for="email" class="heading--full">Email address</label>
+                    <input type="email" name="email" id="email" placeholder="Email" required autocomplete="off" class="input input--full">
+                    <span class="validate-email validate">A valid email address must be entered</span>
+                </div>
 
+                <!-- Phone number -->
+                <div class="field">
+                    <label for="phone-number" class="heading--full">Telephone number</label>
+                    <input type="tel" name="phoneNumber" id="phone-number" placeholder="Telephone number" required autocomplete="off" class="input input--full">
+                    <span class="validate-phone validate">A valid phone number must be entered</span>
+                </div>
 
-            <!-- Special requirements radio button -->
-            <p>Would you like to add a special requirement note?</p>
-            <input type="radio" name="specialRequirementsGiven" id="no" value="no" checked>
-            <label for="no">No</label>
+                <!-- Location -->
+                <div class="field">
+                    <label for="location" class="heading--full">Restaurant location</label>
+                    <select id="location" required class="input input--full">
+                        <option hidden disabled selected value="">--- select a location ---</option>
+                        <optgroup label="London">
+                            <option>Croydon</option>
+                            <option>Hammersmith</option>
+                            <option>Stratford</option>
+                            <option>Wembley</option>
+                        </optgroup>
+                        <optgroup label="East Anglia">
+                            <option>Cambridge</option>
+                            <option>Colchester</option>
+                            <option>Norwich</option>
+                        </optgroup>
+                        <optgroup label="South East">
+                            <option>Brighton</option>
+                            <option>Hastings</option>
+                        </optgroup>
+                    </select>
+                    <span class="validate-location validate">Please select a restaurant</span>
+                </div>
 
-            <input type="radio" name="specialRequirementsGiven" id="yes" value="yes">
-            <label for="yes">Yes</label>
+                <!-- Date of booking -->
+                <div class="field">
+                    <label for="date" class="heading--full">Date of booking</label>
+                    <input type="date" id="date" name="date" required class="input input--full">
+                    <span class="validate-date validate">Online bookings are only available a maximum of a year in advance.</span>
+                </div>
 
+                <!-- Time of booking -->
+                <div class="field">
+                    <label for="time" class="heading--full"> Time of booking</label>
+                    <input type="time" id="time" name="time" list="times" min="12:00" max="22:00" step="900" required class="input input--full">
+                    <datalist id="times">
+                    <!-- Add times with Javascript -->
+                    </datalist>
+                    <span class="validate-time validate">Tables can only be booked every 15 minutes between 12:00 and 22:00</span>
+                </div>
 
-            <!-- Special requirements text area -->
-            <div class="special-requirements-block">
-                <label for="special-requirements">Special Requirements</label>
-                <textarea name="specialRequirements" id="special-requirements" cols="100" rows="4" maxlength="400" placeholder="Enter any special requirements that you would like us to be aware of here."></textarea>
-            </div>
+                <!-- Number of people -->
+                <div class="field">
+                    <label for="guests" class="heading--full">Number of guests</label>
+                    <input type="number" id="guests" name="guests" min="1" max="12" required class="input input--full">
+                    <span class="validate-guests validate">Please select the number of guests</span>
+                    <div class="guests__popup">
+                        <div class="popup__text">
+                            <p>If you would like to make a booking for more than 12 guests, please contact the restaurant by phone.</p>
+                            <button type="button" class="close-popup btn--close">OK</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Special requirements radio button -->
+                <div class="field">
+                    <p class="heading--full">Would you like to add a special requirement note?</p>
+                    <input type="radio" name="specialRequirementsGiven" id="no" value="no" checked>
+                    <label for="no">No</label>
 
-            <!-- Checkboxes for newsletters -->
-            <p>I would like to receive emails about the following:</p>
-            <input type="checkbox" id="menu" value="menu" name="menu">
-            <label for="menu">New menus</label>
+                    <input type="radio" name="specialRequirementsGiven" id="yes" value="yes">
+                    <label for="yes">Yes</label>
+                </div>
 
-            <input type="checkbox" id="social" value="social" name="social">
-            <label for="social">Social events</label>
+                <!-- Special requirements text area -->
+                <div class="field">
+                    <div class="special-requirements-block">
+                        <textarea name="specialRequirements" id="special-requirements" class="input input--full" cols="100" rows="4" maxlength="400" placeholder="Enter any special requirements that you would like us to be aware of."></textarea>
+                    </div>
+                </div>
 
-            <input type="checkbox" id="specialOffers" value="specialOffers" name="specialOffers">
-            <label for="specialOffers">Special offers</label>
+                <!-- Checkboxes for newsletters -->
+                <div class="field">
+                    <p class="heading--full">I would like to receive emails about the following:</p>
+                    <div>
+                        <input type="checkbox" id="menu" value="menu" name="menu">
+                        <label for="menu">New menus</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="social" value="social" name="social">
+                        <label for="social">Social events</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="specialOffers" value="specialOffers" name="specialOffers">
+                        <label for="specialOffers">Special offers</label>
+                    </div>
+                </div>
 
-            <!-- Submit -->
-            <button type="submit" id="submit">Submit</button>
+                <!-- Submit -->
+                <button type="submit" id="submit" class="btn--submit">Place booking</button>
 
-        </form>
+            </form>
 
-        <div class="submitted"></div>
+            <div class="submitted"></div>
 
-
-
-
-
-
-
-
-
+        </div>
 
         <script src="script.js"></script>
+
     </body>
+
 </html>

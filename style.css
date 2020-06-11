@@ -1,28 +1,141 @@
+/***** Initial setup *****/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/***** General styling *****/
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #314046;
+    background: url('restaurant-background-portrait.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.container {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    height: 100%;
+}
+
+.booking-form,
+.submitted-style {
+    width: 90%;
+    height: max-content;
+    max-height: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #ccd5d9;
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+}
+
+.submitted-style p {
+    padding: 15px;
+}
+
+
+/***** Buttons *****/
+button {
+    display: block;
+    border-radius: 8px;
+    border: 0;
+    background: #7896ab;
+    color: #fff;
+    transition: all 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.btn--submit {
+    font-size: 1.2em;
+    padding: 8px 12px;
+    margin: 15px auto;
+}
+
+.btn--close {
+    padding: 5px 10px;
+    margin: 10px auto 0;
+}
+
+
+/***** Form inputs and labels *****/
+.field {
+    padding: 10px;
+}
+
+.heading--full {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input {
+    border: none;
+    height: 30px;
+    padding: 0 10px;
+}
+
+.input--full {
+    width: 100%;
+}
+
+#special-requirements {
+    height: initial;
+}
+
 .special-requirements-block {
     display: none;
 }
 
 
+/***** Warning messages *****/
+.validate {
+    display: none;
+    color: red;
+    padding: 5px 0;
+    font-size: 0.8em;
+}
+
+
+/***** Pop-up message *****/
+
 .guests__popup {
     position: relative;
     display: inline-block;
+    left: calc(50% - 115px);
 }
 
 .popup__text {
-    visibility: hidden;
+    visibility: hidden; 
     position: absolute;
-    width: 250px;
-    background: #ddd;
+    width: 230px;
+    background: #bb8457;
+    color: #fff;
     z-index: 1;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
 }
 
 .popup__text:after {
     content: "";
     position: absolute;
-    top: 100%;
+    top: -10px;
     left: 50%;
     margin-left: -10px;
-    border-top: solid 10px #ddd;
+    border-bottom: solid 10px #bb8457;
     border-left: solid 10px transparent;
     border-right: solid 10px transparent;
 }
@@ -38,12 +151,23 @@
 }
 
 
+/***** Media Query *****/
+@media (min-width: 600px) {
+    
+    body {
+        background: url('restaurant-background-landscape.jpg');
+        height: 1100px;
+    }
+    
+    .container {
+        height: max-content;
+        padding: 50px 0;;
+    }
 
-.validate-phone,
-.validate-email,
-.validate-date,
-.validate-time,
-.validate-location,
-.validate-guests {
-    display: none;
+    .booking-form,
+    .submitted-style {
+        height: max-content;
+        overflow: initial;
+    }
+
 }

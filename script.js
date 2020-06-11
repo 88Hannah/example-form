@@ -190,10 +190,11 @@ yes.addEventListener('click', () => {
         specialRequirements.required = true;
 });
 
-// Hide the special requirements box if no is selected
+// Hide the special requirements box and reset its value if no is selected
 no.addEventListener('click', () => {
         specialRequirementsBlock.style.display = 'none';
         specialRequirements.required = false;
+        specialRequirements.value = "";
 });
 
 
@@ -233,13 +234,15 @@ form.addEventListener('submit', e => {
     const specialRequirementsText = getSpecialRequirements();
 
     const markup = `
-        <p>Hi ${name.value},<p>
+        <h2>Table booked!</h2>
+        <p>Hi ${name.value},</p>
         <p>Thank you for choosing to visit one of our restaurants.</p>
         <p>A table for ${guests.value} has been booked for you at our ${restaurant.value} restaurant 
-        on ${bookingDate} at ${time.value}.
+        on ${bookingDate} at ${time.value}.</p>
         ${specialRequirementsText}
         <p>We look forward to seeing you.</p>
     `;
 
+    submitted.classList.add('submitted-style');
     submitted.innerHTML = markup;
 });
